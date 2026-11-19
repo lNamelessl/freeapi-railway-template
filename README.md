@@ -83,7 +83,7 @@ None of these are required to deploy or to use the API — the email/password fl
 
 | Limit | Reality |
 | --- | --- |
-| Memory | the Node process idles at roughly `~90 MB` RSS with MongoDB on the same private network — comfortable on any plan |
+| Memory | the Node process idles at about 160 MB RSS (measured; peak about 350 MB during boot and first requests) with MongoDB on the same private network — comfortable on any plan |
 | Sessions | express-session uses the default in-memory store: sessions vanish on redeploy (login tokens issued as JWTs keep working) and it is single-process by design |
 | Email | no Mailtrap credentials = verification / password-reset emails are never delivered (registration and login still succeed; email errors are logged, never thrown) |
 | File uploads | avatars and product images write to the container filesystem (`public/images`), so they do not survive a redeploy — database records do |
